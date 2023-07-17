@@ -16,7 +16,7 @@ class CouponsTypes
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $nam = null;
+    private ?string $name = null;
 
     #[ORM\OneToMany(mappedBy: 'coupons_types', targetEntity: Coupons::class, orphanRemoval: true)]
     private Collection $coupons;
@@ -31,14 +31,14 @@ class CouponsTypes
         return $this->id;
     }
 
-    public function getNam(): ?string
+    public function getName(): ?string
     {
-        return $this->nam;
+        return $this->name;
     }
 
-    public function setNam(string $nam): static
+    public function setName(string $name): static
     {
-        $this->nam = $nam;
+        $this->name = $name;
 
         return $this;
     }
