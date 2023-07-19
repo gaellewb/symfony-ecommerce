@@ -12,23 +12,31 @@ class CategoriesFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        $parent = new Categories();
-        $parent->setName('Informatique');
-        $manager->persist($parent);
+        $parent = $this->createCategory('Informatique', null, $manager);
 
-        $category = new Categories();
-        $category->setName('Ordinateurs portables');
-        $category->setParent($parent);
-        $manager->persist($category);
+        $this->createCategory('Ordinateurs portables', $parent, $manager);
+        $this->createCategory('Ecrans', $parent, $manager);
+        $this->createCategory('Souris', $parent, $manager);
 
+        $parent = $this->createCategory('Mode', null, $manager);
+
+        $this->createCategory('Homme', $parent, $manager);
+        $this->createCategory('Femme', $parent, $manager);
+        $this->createCategory('Enfant', $parent, $manager);
+
+        $manager->flush();
+    }
+
+    public function createCategory(string $name, Categories $parent = null, ObjectManager $manager)
+    {
         $category = new Categories();
-        $category->setName('Ecrans');
+        $category->setName($name);
         $category->setParent($parent);
         $manager->persist($category);
 
         $this->addReference('cat-'.$this->counter, $category);
         $this->counter++;
 
-        $manager->flush();
+        return $category;
     }
 }
