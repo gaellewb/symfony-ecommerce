@@ -122,7 +122,7 @@ class Categories
             $this->products->add($product);
             $product->setCategories($this);
         }
-
+        
         return $this;
     }
 
