@@ -4,10 +4,13 @@
 
 {% block body %}
 <main class="container">
-    <section class="row">
-        <div class="col-12">
+    <section class="row mon-bg">
+        <div class="col-12 text-center">
             <h1>Page non trouvée</h1>
-            <p>La page que vous recherchez n'a pas été trouvée.</p>     
+            <p>La page que vous recherchez n'a pas été trouvée.</p>    
+        </div>
+        <div class="offset-3 col-6">
+            <img src={{ asset('assets/uploads/error404.jpg')}} class="w-100" alt="">
         </div>
     </section>
 </main>
