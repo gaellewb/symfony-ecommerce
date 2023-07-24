@@ -29,6 +29,22 @@ class UsersFixtures extends Fixture
 
         $manager->persist($admin);
 
+
+        $productAdmin = new Users();
+        $productAdmin->setEmail('product_admin@demo.fr');
+        $productAdmin->setLastname('Benoist');
+        $productAdmin->setFirstname('Martine');
+        $productAdmin->setAddress('17 rue de Paris');
+        $productAdmin->setZipcode('83500');
+        $productAdmin->setCity('La Seyne');
+        $productAdmin->setPassword(
+            $this->passwordEncoder->hashPassword($productAdmin, 'prodadmin')
+        );
+        $productAdmin->setRoles(['ROLE_PRODUCT_ADMIN']);
+
+        $manager->persist($productAdmin);
+
+
         $faker = Faker\Factory::create('fr_FR');
 
         for($usr = 1; $usr <= 5; $usr++){

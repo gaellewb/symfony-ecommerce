@@ -25,7 +25,7 @@ class ImagesFixtures extends Fixture implements DependentFixtureInterface
         //     string $format = 'png'
         // ): string;
 
-        for($img = 1; $img <= 100; $img++){
+        for($img = 1; $img <= 50; $img++){
             $image = new Images();
             // $image->setName($faker->image(null, 640, 480));
             // $image->setName($faker->imageUrl(null, 640, 480));
