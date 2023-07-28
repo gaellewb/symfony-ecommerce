@@ -1,0 +1,12 @@
+.nav-item {
+    font-size:large;
+    font-weight: 600;
+}
+
+.navbar, footer {
+    background-color: orange;
+}
+
+footer {
+    height: 70px;
+}
